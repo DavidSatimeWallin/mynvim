@@ -59,7 +59,6 @@ Plug 'Shougo/denite.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'terryma/vim-multiple-cursors'
 
 
 
@@ -270,3 +269,4 @@ nmap <S-Tab> :bprevious<CR>
 
 " font size
 set guifont=Hack:h9:l
+
