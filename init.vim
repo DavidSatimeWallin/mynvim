@@ -59,7 +59,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'HerringtonDarkholme/yats.vim'
-
+Plug 'terryma/vim-multiple-cursors'
 
 
 
