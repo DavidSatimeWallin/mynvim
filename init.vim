@@ -59,11 +59,20 @@ Plug 'Shougo/denite.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'vim-syntastic/syntastic'
 
 
 
 call plug#end()
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " When writing a buffer (no delay).
 call neomake#configure#automake('w')
@@ -106,7 +115,7 @@ highlight LineNr guibg=NONE ctermbg=NONE
 
 """ Other Configurations
 filetype plugin indent on
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent
 set incsearch ignorecase smartcase hlsearch
 set ruler laststatus=2 showcmd showmode
 set list listchars=trail:»,tab:»-
