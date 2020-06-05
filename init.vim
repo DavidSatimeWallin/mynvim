@@ -60,10 +60,16 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
+
+
 
 
 
 call plug#end()
+
+let g:php_cs_fixer_rules = "@PSR2"  
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
