@@ -62,10 +62,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'StanAngeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
-
-
-
-
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-crystal/vim-crystal'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -87,19 +86,9 @@ call neomake#configure#automake('w')
 
 let g:deoplete#enable_at_startup = 1
 
+vmap <F6> :!xclip -f -sel clip<CR>
+map <F7> :-1r !xclip -o -sel clip<CR>
 
-
-""" Copy 'n' Paste
-function! ClipboardYank()
-    call system('xclip -i -selection clipboard', @@)
-endfunction
-function! ClipboardPaste()
-    let @@ = system('xclip -o -selection clipboard')
-endfunction
-
-vnoremap <silent> y y:call ClipboardYank()<cr>
-vnoremap <silent> d d:call ClipboardYank()<cr>
-nnoremap <silent> p :call ClipboardPaste()<cr>p
 
 """ Python3 VirtualEnv
 let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
@@ -107,6 +96,12 @@ let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
 """ Coloring
 syntax on
 color dracula
+
+set background=dark
+colorscheme PaperColor
+
+
+
 highlight Pmenu guibg=white guifg=black gui=bold
 highlight Comment gui=bold
 highlight Normal gui=none
