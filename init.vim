@@ -29,8 +29,8 @@ Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'zchee/deoplete-jedi'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
@@ -51,11 +51,11 @@ Plug 'dkarter/bullets.vim'
 " Entertainment
 "Plug 'ryanss/vim-hackernews'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " For async completion
-Plug 'Shougo/deoplete.nvim'
+"Plug 'Shougo/deoplete.nvim'
 " For Denite features
-Plug 'Shougo/denite.nvim'
+"Plug 'Shougo/denite.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neomake/neomake'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -65,6 +65,15 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vim-crystal/vim-crystal'
 Plug 'NLKNguyen/papercolor-theme'
+
+Plug 'ollykel/v-vim'
+
+Plug 'tpope/vim-markdown'
+Plug 'andreypopp/vim-colors-plain'
+Plug 'rakr/vim-colors-rakr'
+
+Plug 'stephpy/vim-yaml'
+
 
 call plug#end()
 
@@ -84,7 +93,7 @@ call neomake#configure#automake('w')
 
 " Enable deoplete at startup
 
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 vmap <F6> :!xclip -f -sel clip<CR>
 map <F7> :-1r !xclip -o -sel clip<CR>
@@ -92,14 +101,6 @@ map <F7> :-1r !xclip -o -sel clip<CR>
 
 """ Python3 VirtualEnv
 let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
-
-""" Coloring
-syntax on
-color dracula
-
-set background=dark
-colorscheme PaperColor
-
 
 
 highlight Pmenu guibg=white guifg=black gui=bold
@@ -114,6 +115,14 @@ set termguicolors
 highlight Normal guibg=NONE ctermbg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE
 
+""" Coloring
+syntax on
+let g:airline_theme='tomorrow'
+"color tomorrow
+"color forgotten-light
+set background=light
+colorscheme rakr
+
 """ Other Configurations
 filetype plugin indent on
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent
@@ -125,6 +134,7 @@ set wrap breakindent
 set encoding=utf-8
 set number
 set title
+set mouse=a
 
 """ Plugin Configurations
 
@@ -147,7 +157,7 @@ autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " Disable documentation window
 set completeopt-=preview
 
@@ -208,6 +218,10 @@ autocmd FileType journal setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 """ Custom Functions
 
+function! FourTab()
+    set expandtab ts=4 sw=4 ai
+endfunction
+
 " Trim Whitespaces
 function! TrimWhitespace()
     let l:save = winsaveview()
@@ -253,6 +267,7 @@ nmap \ <leader>q
 nmap <leader>w :TagbarToggle<CR>
 nmap <leader>ee :Colors<CR>
 nmap <leader>ea :AirlineTheme
+nmap <leader>44 :call FourTab()<CR>
 nmap <leader>e1 :call ColorDracula()<CR>
 nmap <leader>e2 :call ColorSeoul256()<CR>
 nmap <leader>e3 :call ColorForgotten()<CR>
@@ -280,3 +295,4 @@ nmap <S-Tab> :bprevious<CR>
 " font size
 set guifont=Hack:h9:l
 
+set expandtab ts=4 sw=4 ai
